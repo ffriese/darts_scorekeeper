@@ -229,7 +229,7 @@ class DartboardWidget(QWidget):
             s = max(int(s), 1)
             probs = [np.exp(-z * z / (2 * s * s)) / np.sqrt(2 * np.pi * s * s) for z in range(-k, k + 1)]
             return np.outer(probs, probs) * 20
-        size = 8
+        size = 5
         kernel = gen_kernel(5*size*scale, size*scale)
 
         timer.finished('generate kernel')
@@ -254,7 +254,7 @@ class DartboardWidget(QWidget):
 
         timer.finished('sum histogram')
         print('got histogram')
-        histogram /= np.max(histogram) / 255.0
+        histogram /= max(np.max(histogram), 0.1) / 255.0
         histogram = histogram.astype(np.uint8)
         height, width = histogram.shape
 
