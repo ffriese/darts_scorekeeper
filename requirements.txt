@@ -1,7 +1,7 @@
 alembic==1.4.0
 altgraph==0.17
 cffi==1.13.2
-future==0.18.2
+future==0.18.3
 Mako==1.2.2
 MarkupSafe==1.1.1
 mqttclient==0.0.2
