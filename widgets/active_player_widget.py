@@ -61,7 +61,7 @@ class ActivePlayerWidget(QWidget):
             take_color = self.take.player.color
             take_color.setAlpha(150)
         else:
-            take_color = QColor(10, 10, 10, 50)
+            take_color = QColor(10, 10, 10, 150)
         painter.setPen(take_color)
         painter.setBrush(QBrush(take_color))
         painter.drawConvexPolygon(QPolygon([QPointF(*p).toPoint() for p in [p5, p6, p7, p8]]))

@@ -400,7 +400,7 @@ class DartboardWidget(QWidget):
 
             # DRAW WIRE
             if floor(self.scale) > 0:
-                pen.setWidthF(self.scale / 2.0)
+                pen.setWidthF(self.scale / 5.0)
                 painter.setPen(pen)
 
                 keys = list(self.paths.keys())

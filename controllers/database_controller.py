@@ -34,19 +34,11 @@ def _create_session(engine):
     session.configure(bind=engine)
     created_session = session()
     created_session.commit()
-    # players = created_session.query(Player).all()
-    # if not players:
-    #     created_session.add(Player(name='Torben'))
-    #     created_session.add(Player(name='Philipp'))
-    #     created_session.add(Player(name='Patrick'))
-    #     created_session.add(Player(name='Kai'))
-    #     created_session.add(Player(name='Felix'))
-    #     created_session.commit()
     return created_session
 
 
 class DatabaseController(QObject):
-    _engine = create_engine('sqlite:///alchemy.db') #, echo='debug')
+    _engine = create_engine('sqlite:///alchemy.db')  # , echo='debug')
     _session = _create_session(_engine)  # type: Session
     _session.autoflush = False
 

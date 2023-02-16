@@ -16,7 +16,7 @@ from widgets.player_widget import PlayerWidget
 class ActiveGameWidget(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.background_image = QPixmap('img/wood.jpg')
+        self.background_image = QPixmap('img/seamless-wood-bg.webp').scaledToHeight(500)
         self.player_widgets = OrderedDict()  # type: OrderedDict[Player, PlayerWidget]
         self.dartboard_widget = DartboardWidget(self)
         self.active_widget_reference = None
@@ -82,6 +82,13 @@ class ActiveGameWidget(QWidget):
         painter = QPainter()
         painter.begin(self)
         painter.setRenderHints(QPainter.Antialiasing | QPainter.SmoothPixmapTransform)
-        painter.drawPixmap(QRect(0, 0, self.background_image.width(), self.background_image.height()),
-                           self.background_image)
+        # painter.drawPixmap(QRect(0, 0, self.background_image.width(), self.background_image.height()),
+        #                    self.background_image)
+        x = 0
+        while x < self.width():
+            y = 0
+            while y < self.height():
+                painter.drawPixmap(x, y, self.background_image)
+                y += self.background_image.height()
+            x += self.background_image.width()
         event.accept()

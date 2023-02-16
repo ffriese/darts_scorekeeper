@@ -25,7 +25,7 @@ class App(QMainWindow):
 
         # basic window init
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setWindowTitle('Play Darts')
+        self.setWindowTitle('Darts Scorekeeper')
         self.setWindowIcon(QIcon('img/dart.png'))
         # self.setStyleSheet('background-image: url(img/wood_bar.png)')
         self.setMinimumSize(800, 500)
@@ -37,7 +37,6 @@ class App(QMainWindow):
 
         self.game_info_widget = QLabel()
         self.statusBar.addPermanentWidget(self.game_info_widget)
-
 
         self.create_toggle_button('sound_toggle', QIcon('img/sound_on.png'), QIcon('img/sound_off.png'),
                                   self.sound_toggled, default=Settings.SOUND_ENABLED.get())
